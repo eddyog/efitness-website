@@ -26,6 +26,7 @@ body, html, #root, .App {
   z-index: 10;
 }
 
+
 .logo {
   display: flex;
   align-items: center;
@@ -76,6 +77,15 @@ body, html, #root, .App {
   background: #ffd700;
   color: #000;
 }
+
+
+/* Container that enables snap scrolling */
+.scroll-container {
+  height: 100vh; /* full viewport */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 
 /* 🔹 Hero Section */
 .hero {
@@ -258,13 +268,6 @@ body, html, #root, .App {
   transform: translateY(-2px);
 }
 
-.logoImage {
-  max-width: 300px;  /* adjust as needed */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto; /* centers the logo */
-}
 
 
 /* 🔹 Features Section */
@@ -289,14 +292,7 @@ body, html, #root, .App {
 }
 
 .feature-card {
-  /* background-color: #1a1a1a;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 320px;
-  max-height: 500px;
-  height: 500px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s; */
+
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
@@ -333,4 +329,18 @@ body, html, #root, .App {
 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+/* ... (all your other CSS code) ... */
+
+.logoImage {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  
+  /* 💡 Key changes below 💡 */
+  transform: rotate(0deg); /* This is the key line to add. It gives the JS a base value to modify. */
+  will-change: transform; /* Hint for the browser to optimize for transform changes */
+  transition: transform 0.1s linear; /* Smooths out the rotation effect */
 }
