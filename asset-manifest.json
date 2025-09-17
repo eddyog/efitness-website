@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/efitness-website/static/css/main.ce2199e0.css",
+    "main.js": "/efitness-website/static/js/main.48d1d96f.js",
+    "static/js/453.7ffa605c.chunk.js": "/efitness-website/static/js/453.7ffa605c.chunk.js",
+    "static/media/planner.png": "/efitness-website/static/media/planner.7436d724f966988716ca.png",
+    "static/media/homeWorkout.png": "/efitness-website/static/media/homeWorkout.1ffd5184564db1409308.png",
+    "static/media/pro.png": "/efitness-website/static/media/pro.aa040e5775c2a126487c.png",
+    "static/media/efitnesslogo.png": "/efitness-website/static/media/efitnesslogo.2e10c3572cb64de17e97.png",
+    "index.html": "/efitness-website/index.html",
+    "main.ce2199e0.css.map": "/efitness-website/static/css/main.ce2199e0.css.map",
+    "main.48d1d96f.js.map": "/efitness-website/static/js/main.48d1d96f.js.map",
+    "453.7ffa605c.chunk.js.map": "/efitness-website/static/js/453.7ffa605c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce2199e0.css",
+    "static/js/main.48d1d96f.js"
+  ]
+}
