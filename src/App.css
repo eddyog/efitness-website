@@ -1,26 +1,336 @@
-.App {
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body, html, #root, .App {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* 🔹 Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffd700; /* gold */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+.sign-in {
+  background: #6a5acd; /* slate blue */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.sign-in:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+/* 🔹 Hero Section */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 10%;
+  flex-wrap: wrap;
+  min-height: 90vh;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.mainTitle {
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: relative;
+  color: #ffd700; /* gold */
+  display: inline-block; /* make sure ::after is sized relative to text */
+  z-index: 0; /* reset stacking context */
+}
+
+.mainTitle::after {
+
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  height: 220%;
+  background: radial-gradient(circle, rgba(255,215,0,0.8) 0%, transparent 50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1; /* put it behind the text, but still inside the h1 context */
+  opacity: 1; /* ensure visible */
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.sloganText {
+  padding-top: 4rem;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #dbdad6; 
+}
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #dbdad6; 
+}
+
+.cta-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #1e90ff; /* blue */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0d6efd;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #000;
+}
+
+/* Hero Art */
+.hero-art img {
+  max-width: 600px;
+  width: 100%;
+  
+}
+
+/* 🔹 Glow animation */
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* 🔹 Responsive */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .hero-art {
+    margin-top: 40px;
+  }
+
+  .nav-links {
+    display: none; /* mobile menu to be added later */
+  }
+}
+
+/* Fixed download buttons bottom-right */
+.download-buttons {
+
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  z-index: 20;
+}
+
+.download-btn {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
   text-align: center;
-  min-height: 100vh;
+}
+
+.download-btn.ios {
+  background-color: #ffd700;
+  color: #000;
+  border: 2px solid #ffd700;
+}
+
+.download-btn.android {
+  background-color: #ffd700; /* gold */
+  color: #000;
+  border: 2px solid #ffd700;
+}
+
+.download-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.logoImage {
+  max-width: 300px;  /* adjust as needed */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centers the logo */
+}
+
+
+/* 🔹 Features Section */
+.features {
+  padding: 80px 10%;
+  text-align: center;
+  background-color: #111; /* subtle contrast */
+  padding-bottom: 250px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #ffd700;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  /* background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+  max-height: 500px;
+  height: 500px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; */
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #2c003e, #1a001f); /* dark purple gradient */
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+
 }
 
-.App-header {
-  padding: 20px;
+.feature-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: end;
 }
 
-.title {
-  font-size: 3rem;
-  color: #ffd700; /* gold */
-  margin-bottom: 1rem;
-}
-
-.subtitle {
+.feature-card h3 {
   font-size: 1.5rem;
-  color: #add8e6; /* light blue */
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #dbdad6;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
